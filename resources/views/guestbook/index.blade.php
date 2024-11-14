@@ -7,9 +7,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
     <div class="container mt-5">
         <h1 class="mb-4">Гостевая книга</h1>
-
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -40,7 +40,11 @@
                     </li>
                 @endforeach
             </ul>
+
         </div>
+            <div class="mb-34">
+            <p>Вы админ? <a href="/admin/messages">Перейти к сообщениям</a></p>
+             </div>
     </div>
 </body>
 </html>
