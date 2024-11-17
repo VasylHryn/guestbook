@@ -33,10 +33,10 @@
 <body>
 
     <div class="container mt-5">
-        <p class="text-center">Are you an admin? <a href="/admin/messages">Перейти к сообщениям</a></p>
+        <p class="text-center">Are you an admin? <a href="/admin/messages">Go to messages</a></p>
 
         <div class="guestbook-header">
-            <h1>Гостевая книга</h1>
+            <h1>Guestbook</h1>
             @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -48,19 +48,19 @@
             <form action="{{ route('message.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Ваше имя</label>
+                    <label for="name">Your name</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Ваш отзыв</label>
+                    <label for="message">Your feedback</label>
                     <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Отправить</button>
+                <button type="submit" class="btn btn-primary">Send</button>
             </form>
         </div>
 
         <div class="mt-5">
-            <h2>Отзывы</h2>
+            <h2>Reviews</h2>
             <ul class="list-group">
                 @foreach($messages as $message)
                     <li class="list-group-item message-item">

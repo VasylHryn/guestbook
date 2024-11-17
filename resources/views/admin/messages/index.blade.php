@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Админ-панель - Сообщения</title>
+    <title>Admin Panel - Messages</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
     <div class="container mt-5">
         <div class="mb-34">
-            <p><a href="/guestbook">Перейти к сообщениям</a></p>
+            <p><a href="/guestbook">Go to messages</a></p>
         </div>
-        <h1 class="mb-4">Админ-панель - Сообщения</h1>
+        <h1 class="mb-4">Admin Panel - Messages</h1>
 
         @if(session('success'))
             <div class="alert alert-success">
@@ -24,10 +24,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Имя</th>
-                    <th>Сообщение</th>
-                    <th>Дата</th>
-                    <th>Действия</th>
+                    <th>Name</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
