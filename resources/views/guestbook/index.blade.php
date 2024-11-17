@@ -9,6 +9,7 @@
 <body>
 
     <div class="container mt-5">
+            <p>Вы админ? <a href="/admin/messages">Перейти к сообщениям</a></p>
         <h1 class="mb-4">Гостевая книга</h1>
         @if(session('success'))
             <div class="alert alert-success">
@@ -20,13 +21,13 @@
             @csrf
             <div class="form-group">
                 <label for="name">Ваше имя</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control rounded" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="message">Ваш отзыв</label>
-                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                <textarea class="form-control rounded" id="message" name="message" rows="3" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" class="btn btn-primary rounded">Отправить</button>
         </form>
 
         <div class="mt-5">
@@ -40,11 +41,8 @@
                     </li>
                 @endforeach
             </ul>
-
         </div>
-            <div class="mb-34">
-            <p>Вы админ? <a href="/admin/messages">Перейти к сообщениям</a></p>
-             </div>
     </div>
+
 </body>
 </html>
