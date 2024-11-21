@@ -14,27 +14,26 @@ class MessageController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'message' => 'required|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // правило валидации для изображения
+    ]);
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'message' => 'required|string',
-        ]);
-
-
-        Message::create([
-            'name' => $request->name,
-            'message' => $request->message,
-        ]);
-
-
-        return redirect()->route('guestbook')->with('success', 'Ваш отзыв добавлен.');
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images', 'public'); // сохраняем изображение в хранилище
     }
-        public function adminIndex()
-    {
-        $messages = Message::latest()->get();
-        return view('admin.messages.index', compact('messages'));
-    }
+
+    Message::create([
+        'name' => $request->name,
+        'message' => $request->message,
+        'image' => $imagePath, // сохраняем путь к изображению
+    ]);
+
+    return redirect()->route('guestbook')->with('success', 'Ваш отзыв добавлен.');
+}
 
     public function destroy($id)
     {

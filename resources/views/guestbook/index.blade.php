@@ -28,6 +28,11 @@
         .message-item h5 {
             margin-bottom: 10px;
         }
+        .message-item img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -45,27 +50,34 @@
         </div>
 
         <div class="form-container">
-            <form action="{{ route('message.store') }}" method="POST">
+            <form action="{{ route('message.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Your name</label>
+                    <label for="name">Ваше имя</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Your feedback</label>
+                    <label for="message">Ваш отзыв</label>
                     <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send</button>
+                <div class="form-group">
+                    <label for="image">Прикрепить изображение</label>
+                    <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
             </form>
         </div>
 
         <div class="mt-5">
-            <h2>Reviews</h2>
+            <h2>Отзывы</h2>
             <ul class="list-group">
                 @foreach($messages as $message)
                     <li class="list-group-item message-item">
                         <h5>{{ $message->name }}</h5>
                         <p>{{ $message->message }}</p>
+                        @if($message->image)
+                            <img src="{{ asset('storage/' . $message->image) }}" alt="Image" class="img-fluid">
+                        @endif
                         <small class="text-muted">{{ $message->created_at->format('d.m.Y H:i') }}</small>
                     </li>
                 @endforeach

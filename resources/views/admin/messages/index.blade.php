@@ -35,7 +35,9 @@
                     <tr>
                         <td>{{ $message->name }}</td>
                         <td>{{ $message->message }}</td>
+                        <td>{{ $message->image }}</td>
                         <td>{{ $message->created_at->format('d.m.Y H:i') }}</td>
+
                         <td>
                             <form action="{{ route('admin.messages.destroy', $message->id) }}" method="POST" onsubmit="return confirm('Удалить это сообщение?')">
                                 @csrf
