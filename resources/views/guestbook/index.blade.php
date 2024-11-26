@@ -27,29 +27,31 @@
         <form action="{{ route('message.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
-                <label for="name" class="block text-gray-700 font-medium mb-2 text-lg">Your Name</label>
-                <input type="text" id="name" name="name"
-                       class="w-full h-12 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-lg px-4"
-                       placeholder="Enter your name" required>
-            </div>
+    <label for="name" class="block text-gray-700 font-medium mb-2 text-lg">Your Name</label>
+    <input type="text" id="name" name="name"
+           class="w-full h-12 border-2 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-lg px-4"
+           placeholder="Enter your name" required>
+</div>
 
-            <div class="mb-6">
-                <label for="message" class="block text-gray-700 font-medium mb-2 text-lg">Your Review</label>
-                <textarea id="message" name="message" rows="5"
-                          class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-lg px-4 py-3"
-                          placeholder="Write your message here..." required></textarea>
-            </div>
+<div class="mb-6">
+    <label for="message" class="block text-gray-700 font-medium mb-2 text-lg">Your Review</label>
+    <textarea id="message" name="message" rows="5"
+              class="w-full border-2 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-lg px-4 py-3"
+              placeholder="Write your message here..." required></textarea>
+</div>
 
-            <div class="mb-6">
-                <label for="image" class="block text-gray-700 font-medium mb-2 text-lg">Attach Image</label>
-                <input type="file" id="image" name="image" accept="image/*"
-                       class="w-full text-gray-600 file:mr-4 file:py-3 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-blue-100 file:text-blue-500 hover:file:bg-blue-200">
-            </div>
+<div class="mb-6">
+    <label for="image" class="block text-gray-700 font-medium mb-2 text-lg">Attach Image</label>
+    <input type="file" id="image" name="image" accept="image/*"
+           class="w-full text-gray-600 file:mr-4 file:py-3 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-blue-100 file:text-blue-500 hover:file:bg-blue-200">
+</div>
 
-            <button type="submit"
-                    class="btn-press w-full bg-blue-600 text-white py-3 text-lg rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 transition-transform duration-150">
-                Send
-            </button>
+<button type="submit"
+        class="w-full bg-blue-500 text-white py-3 rounded-lg border-2 border-blue-500 shadow-lg hover:bg-blue-600 hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+    Send
+</button>
+
+
         </form>
     </div>
 
