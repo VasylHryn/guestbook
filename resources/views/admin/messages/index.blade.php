@@ -7,7 +7,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
     <div class="container mt-5">
         <div class="mb-34">
             <p><a href="/guestbook">Go to messages</a></p>
@@ -19,7 +18,6 @@
                 {{ session('success') }}
             </div>
         @endif
-
 
         <table class="table">
             <thead>
@@ -42,7 +40,7 @@
                             <form action="{{ route('admin.messages.destroy', $message->id) }}" method="POST" onsubmit="return confirm('Удалить это сообщение?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>
                     </tr>

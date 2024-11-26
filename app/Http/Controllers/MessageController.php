@@ -18,18 +18,18 @@ class MessageController extends Controller
     $request->validate([
         'name' => 'required|string|max:255',
         'message' => 'required|string',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // правило валидации для изображения
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
     $imagePath = null;
     if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('images', 'public'); // сохраняем изображение в хранилище
+        $imagePath = $request->file('image')->store('images', 'public');
     }
 
     Message::create([
         'name' => $request->name,
         'message' => $request->message,
-        'image' => $imagePath, // сохраняем путь к изображению
+        'image' => $imagePath,
     ]);
 
     return redirect()->route('guestbook')->with('success', 'Ваш отзыв добавлен.');
@@ -42,5 +42,11 @@ class MessageController extends Controller
 
         return redirect()->route('admin.messages')->with('success', 'Сообщение удалено.');
     }
+    public function adminIndex()
+{
+    $messages = Message::latest()->get();
+
+    return view('admin.messages.index', compact('messages'));
+}
 }
 
