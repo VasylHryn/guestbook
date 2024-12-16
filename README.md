@@ -14,7 +14,7 @@ Guestbook application where users can leave their reviews and feedback. Users ca
 - Attach an image with the review. 📸
 - View submitted reviews including the name, message, and attached images. 👀
 - Simple and responsive UI. 💻
-- Admin users can delete reviews using middleware for access control. 🛠️
+- Admin users can delete reviews using middleware for access control 🛠️
 
 ## Technology Stack ⚙️
 
